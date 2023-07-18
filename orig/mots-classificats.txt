@@ -1,0 +1,58 @@
+#locucions
+heus ací;;;;loc. orac.;;
+palota;;;;loc. verb.;; no saber palota
+rendibú;;;;loc. verb.;; fer el rendibú
+remanera;;;;loc. adv.;; per la remanera
+trico;;;;loc. adv.;; en un trico, a cada trico
+vet ací;;;;loc. orac.;;
+bacor;;;;adjectiu s.l.;; figa bacor
+bossa nova;portugués;;;femení;;
+carabassut;;;;locució;; no dir xut ni mut ni carabassut
+clim;;;;loc. verb.;;
+foja;;;;loc. verb.;; fer foja
+infra;llatí;;;adverbi;;
+mortina;;;;adjectiu s.l.;; carn mortina
+muc;;;;locució;; sense suc ni muc
+rastrons;;;;loc. adv.;; a rastrons
+ravatacapes;;;;loc. adv.;;
+xurrut;;;;loc. verb.;; anar de xurrut
+arrapa-fuig;;;;loc. adv. s.l.;; d'arrapa-fuig (variant de d'arrapa-i-fuig)
+dric-drac;;;;loc. adv.;;
+grapameus;;;;loc. adv. s.l.;; a grapameus
+osades;;;;loc. adv.;; a osades > ausades
+bif;;;;loc. orac.;col·loquial; 	lo mateix té bif que baf 
+borbolló;;;;loc. adv.;;
+borbotó;;;;loc. adv.;;
+#Poc usual, pot causar inconvenients?
+abornar;;;;verb transitiu;;
+acontényer;;;;verb intransitiu;; [també acontènyer]
+acurtadura;;;;femení;;
+adrissar;;;;verb transitiu;;
+aforisma;;;;femení;; [es pot confondre amb aforisme]
+aguar;;;;verb transitiu;;
+aguar;;;;verb pronominal;;
+alegar;;;;verb transitiu;; [sinònim de aregar, es confon amb al·legar]
+ya;;;yas;femení;; [En general els noms de lletres àrabs i hebrees no es posen en el diccionari. Són paraules problemàtiques.]
+ra;;;ras;femení;;
+dha;;;dhas;femení;;
+dhal;categories: F;fonts: DNV;
+qaf;;;;famení;;
+ba;;;bas;femení;;
+sad;categories: F;fonts: DNV;
+z;;;;femení;;
+kha;;;khas;femení;;
+zay;;;;femení;;
+dad;;;;;;
+dal;;;;fe;;
+tha;;;thas;femení;;
+sin;categories: F;fonts: DNV;
+ka;categories: M;fonts: DNV;
+kaf;categories: F;fonts: DNV;
+aquet;;-a;;adjectiu;;
+aquet;;-a;;masculí;;
+corretejar [DNV i IEC, però val més no posar-lo en el diccionari. És arcaisme i es confon amb castellanisme: corretear;belluguejar]
+judia;;;;femení;;
+sir;anglés;;;masculí;; [entrat en majúscules]
+platirí [eliminat per l'IEC, s'ha eliminat]
+soldre [però és irrellevant, perquè no s'usa mai en infinitiu] FET
+veixell [segons DCVB, grafia antiga]
