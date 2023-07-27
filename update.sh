@@ -18,7 +18,7 @@ mkdir parsed parsed/parcials results
 awk -F'=' '{print $1}' orig/adjectius-fdic.txt \
   | awk '{print $1, $2}' \
   | awk '$0 ~ /^[[:lower:]]/' \
-  |  awk 'BEGIN { FS = " "; OFS = "\n" } { print $1, $2 }' \
+  | awk 'BEGIN { FS = " "; OFS = "\n" } { print $1, $2 }' \
   > parsed/parcials/adjectius.txt
 
 # Adverbis
