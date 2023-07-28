@@ -25,6 +25,7 @@ El diccionari inclou variacions gramaticals i conjugacions de verbs. Molts d'aqu
 ## Requisits
 
 * awk
+* gawk
 * sed
 * sort
 * wc
@@ -37,7 +38,7 @@ El diccionari inclou variacions gramaticals i conjugacions de verbs. Molts d'aqu
 ./update.sh
 ```
 
-Nota: per simplificar el processament de les dades, s'eliminen tots els accents i també els mots de menys de 3 lletres.
+Nota: per simplificar el processament de les dades, s'eliminen els mots de menys de 3 lletres.
 
 ## Filtrat de paraules del dia
 

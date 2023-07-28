@@ -1,26 +1,47 @@
 #!/usr/bin/env bash
 
 str=$(echo "$1" | awk '{print tolower($0)}')
+as="aāáǎàä"
+es="eēéěèë"
+is="iīíǐìï"
+os="oōóǒòö"
+us="uūúǔùǖǘǚǜü"
+straccented=$(echo $str | sed "s/a/$as/g" | sed "s/e/$es/g" | sed "s/i/$is/g" | sed "s/o/$os/g" | sed "s/u/$us/g")
 mestra=${str:0:1}
 resta=${str:1}
-excloses=$(echo "abcçdefghijklmnopqrstuvwxyz" | sed "s/[$str]//g")
+excloses=$(echo "${as}bcçd${es}fgh${is}jklmn${os}pqrst${us}vwxyz" | sed "s/[$straccented]//g")
 strlen=${#str}
 
 echo "MESTRA: $mestra RESTA: $resta EXCLOSES: $excloses"
 
-awk "/$mestra/" parsed/filtrades.txt \
-  | awk "! /[$excloses]/" \
+gawk "/$mestra/" parsed/filtrades.txt \
+  | gawk "! /[$excloses]/" \
   > results/$str-filtrades.txt
 
-awk "/$mestra/" parsed/totes.txt \
-  | awk "! /[$excloses]/" \
+gawk "/$mestra/" parsed/totes.txt \
+  | gawk "! /[$excloses]/" \
   > results/$str-totes.txt
 
 tutis="/$mestra/"
-for (( letter=1; letter<strlen; letter++ )); do tutis+=" && /${str:letter:1}/"; done;
+for (( index=1; index<strlen; index++ )); do
+  letter=${str:index:1}
+  if [[ $letter == "a" ]]; then
+    tutis+=" && /[$as]/"
+  elif [[ $letter == "e" ]]; then
+    tutis+=" && /[$es]/"
+  elif [[ $letter == "i" ]]; then
+    tutis+=" && /[$is]/"
+  elif [[ $letter == "o" ]]; then
+    tutis+=" && /[$os]/"
+  elif [[ $letter == "u" ]]; then
+    tutis+=" && /[$us]/"
+  else
+    tutis+=" && /${str:index:1}/"
+  fi
+done
 
-awk "$tutis" parsed/totes.txt \
-  | awk "! /[$excloses]/" \
+gawk "$tutis" parsed/filtrades.txt \
+  | gawk "! /[$excloses]/" \
   > results/$str-tutis.txt
 
 red=$(cat results/$str-filtrades.txt | wc -l | xargs)

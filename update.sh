@@ -80,17 +80,12 @@ awk -F'=' '{print $1}' orig/verbs-fdic.txt \
 # Generar arxius amb totes o filtrades sense variacions
 # -----------------------------------------------------
 # Concatenar arxius,
-# reemplaçar accents per l'equivalent sense accent,
 # eliminar linies que no comencin per minúscula,
 # eliminar duplicats,
 # eliminar paraules de menys de 3 lletres,
 # ordenar:
 
-accents="āáǎàēéěèīíǐìïōóǒòūúǔùǖǘǚǜüĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛÜ"
-equival="aaaaeeeeiiiiioooouuuuuuuuuaaaaeeeeiiiioooouuuuuuuuu"
-
 cat parsed/parcials/* \
-  | sed -e "y/$accents/$equival/" \
   | awk '$0 ~ /^[[:lower:]]/' \
   | awk '!visited[$0]++' \
   | awk 'length > 2' \
@@ -99,7 +94,6 @@ cat parsed/parcials/* \
 
 cat orig/diccionari.txt parsed/parcials/locucions-i-poc-usuals.txt \
   | awk '{print $1}' \
-  | sed -e "y/$accents/$equival/" \
   | awk '$0 ~ /^[[:lower:]]/' \
   | awk '!visited[$0]++' \
   | awk 'length > 2' \
