@@ -25,16 +25,9 @@ gawk "/$mestra/" parsed/totes.txt \
 tutis="/$mestra/"
 for (( index=1; index<strlen; index++ )); do
   letter=${str:index:1}
-  if [[ $letter == "a" ]]; then
-    tutis+=" && /[$as]/"
-  elif [[ $letter == "e" ]]; then
-    tutis+=" && /[$es]/"
-  elif [[ $letter == "i" ]]; then
-    tutis+=" && /[$is]/"
-  elif [[ $letter == "o" ]]; then
-    tutis+=" && /[$os]/"
-  elif [[ $letter == "u" ]]; then
-    tutis+=" && /[$us]/"
+  accents=$(echo ${letter}s)
+  if [[ $letter =~ [aeiou] ]]; then
+    tutis+=" && /[${!accents}]/"
   else
     tutis+=" && /${str:index:1}/"
   fi
