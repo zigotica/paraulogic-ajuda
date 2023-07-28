@@ -82,12 +82,14 @@ awk -F'=' '{print $1}' orig/verbs-fdic.txt \
 # Concatenar arxius,
 # eliminar linies que no comencin per minúscula,
 # eliminar duplicats,
+# eliminar nombres
 # eliminar paraules de menys de 3 lletres,
 # ordenar:
 
 cat parsed/parcials/* \
   | awk '$0 ~ /^[[:lower:]]/' \
   | awk '!visited[$0]++' \
+  | awk '! /[0-9]/' \
   | awk 'length > 2' \
   | sort \
   > parsed/filtrades.txt
@@ -96,6 +98,7 @@ cat orig/diccionari.txt parsed/parcials/locucions-i-poc-usuals.txt \
   | awk '{print $1}' \
   | awk '$0 ~ /^[[:lower:]]/' \
   | awk '!visited[$0]++' \
+  | awk '! /[0-9]/' \
   | awk 'length > 2' \
   | sort \
   > parsed/totes.txt
