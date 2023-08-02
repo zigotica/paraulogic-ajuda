@@ -14,16 +14,23 @@ strlen=${#str}
 
 echo "MESTRA: $mestra RESTA: $resta EXCLOSES: $excloses"
 
-gawk "/$mestra/" parsed/filtrades.txt \
+accentmestra=$(echo ${mestra}s)
+if [[ $mestra =~ [aeiou] ]]; then
+  mestra="${!accentmestra}"
+else
+  mestra="${mestra}"
+fi
+
+gawk "/[$mestra]/" parsed/filtrades.txt \
   | gawk "! /[$excloses]/" \
   > results/$str-filtrades.txt
 
-gawk "/$mestra/" parsed/totes.txt \
+gawk "/[$mestra]/" parsed/totes.txt \
   | gawk "! /[$excloses]/" \
   > results/$str-totes.txt
 
-tutis="/$mestra/"
-for (( index=1; index<strlen; index++ )); do
+tutis="! /[$excloses]/"
+for (( index=0; index<strlen; index++ )); do
   letter=${str:index:1}
   accents=$(echo ${letter}s)
   if [[ $letter =~ [aeiou] ]]; then
@@ -34,7 +41,6 @@ for (( index=1; index<strlen; index++ )); do
 done
 
 gawk "$tutis" parsed/filtrades.txt \
-  | gawk "! /[$excloses]/" \
   > results/$str-tutis.txt
 
 red=$(cat results/$str-filtrades.txt | wc -l | xargs)
