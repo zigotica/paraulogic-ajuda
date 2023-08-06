@@ -40,7 +40,7 @@ El diccionari inclou variacions gramaticals i conjugacions de verbs. Molts d'aqu
 
 Nota: per simplificar el processament de les dades, s'eliminen els mots de menys de 3 lletres.
 
-## Filtrat de paraules del dia
+## Generar solució de paraules del dia
 
 ```bash
 ./run.sh abcdefg
@@ -61,6 +61,55 @@ Idealment totes les paraules del dia han de sortir al llistat de paraules filtra
 ```bash
 ./diff.sh abcdefg
 ```
+
+## Filtrat de paraules del dia
+
+Un cop portem una estona jugant, podem voler saber quines de les possibles solucions ens queden per trobar, sense haver de mirar i cercar a ull dins l'arxiu de solucions del dia. Podem executar aquest script passant opcions per filtrar el resultat.
+
+Com a mínim, hem de passar les lletres del dia, amb l'argument `-p`:
+
+```bash
+./filter.sh -p abcdefg"
+```
+
+La primera de les lletres és la obligatòria a totes les paraules del dia.
+
+Si no passem més arguments, el filtrat és equivalent a veure l'arxiu de resultats del dia. En tots els casos, el programa retorna el llistat de paraules per pantalla, no escriu cap arxiu.
+
+Podem afegir d'un a quatre arguments extra per filtrar paraules que tinguin un llarg determinat, o que no estiguin dins de la llista de paraules que ja hem trobat prèviament.
+
+Aquests arguments són:
+
+* `-e` per filtrar paraules amb un llarg determinat.
+* `-l` per filtrar paraules amb un llarg menor que un valor.
+* `-m` per filtrar paraules amb un llarg major que un valor.
+* `-i` per filtrar paraules que inicien per una cadena de text.
+* `-c` per filtrar paraules que contenen una cadena de text.
+* `-f` per filtrar paraules que finalitzen per una cadena de text.
+* `-t` per filtrar paraules que no estiguin a un llistat previ. El llistat entre cometes pot ser un copy/paste de les paraules trobades al paraulògic. Normalment cada paraula va separada per coma, però de vegades una coincidència pot incloure dues o més paraules separades per ` o `. Per exemple, "ala o alà, arrel, mal".
+
+Els filtres es van acumulant, de forma que podem filtrar paraules que no estiguin a un llistat previ i que tinguin un llarg determinat. Per exemple:
+
+```bash
+./filter.sh -p abcdefg -e 5
+```
+
+En aquest cas, el programa retorna el llistat de paraules amb un llarg de 5 lletres.
+
+```bash
+./filter.sh -p abcdefg -m 7 -t "ala o alà, arrel, mal"
+```
+
+En aquest cas, el programa retorna el llistat de paraules amb un llarg de més de 7 lletres i que no siguin cap de les 4 paraules del llistat (ala o alà, arrel, mal).
+
+
+```bash
+./filter.sh -p abcdefg -m 7 -i "va"
+```
+
+En aquest cas, el programa retorna el llistat de paraules amb un llarg de més de 7 lletres i que comencen per "va".
+
+Nota: tot i que internament es fan servir, he volgut simplificar l'ús evitant la necessitat de passar expressions regulars, per això hem separat el filtrat en arguments `-i`, `-c` i `-f`.
 
 ## Agraïments
 
