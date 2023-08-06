@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# ./run.sh abcdefg
+# La primera de les lletres és la obligatòria a totes les paraules del dia
+
 str=$(echo "$1" | awk '{print tolower($0)}')
 as="aāáǎàä"
 es="eēéěèë"
