@@ -12,10 +12,12 @@ us="uūúǔùǖǘǚǜü"
 straccented=$(echo $str | sed "s/a/$as/g" | sed "s/e/$es/g" | sed "s/i/$is/g" | sed "s/o/$os/g" | sed "s/u/$us/g")
 mestra=${str:0:1}
 resta=${str:1}
+restaordenada=$(echo $resta | grep -o . | sort | tr -d "\n")
+combo="$mestra$restaordenada"
 excloses=$(echo "${as}bcçd${es}fgh${is}jklmn${os}pqrst${us}vwxyz" | sed "s/[$straccented]//g")
 strlen=${#str}
 
-echo "MESTRA: $mestra RESTA: $resta EXCLOSES: $excloses"
+echo "MESTRA: $mestra RESTA: $restaordenada EXCLOSES: $excloses"
 
 accentmestra=$(echo ${mestra}s)
 if [[ $mestra =~ [aeiou] ]]; then
@@ -26,11 +28,11 @@ fi
 
 gawk "/[$mestra]/" parsed/filtrades.txt \
   | gawk "! /[$excloses]/" \
-  > results/$str-filtrades.txt
+  > results/$combo-filtrades.txt
 
 gawk "/[$mestra]/" parsed/totes.txt \
   | gawk "! /[$excloses]/" \
-  > results/$str-totes.txt
+  > results/$combo-totes.txt
 
 tutis="! /[$excloses]/"
 for (( index=0; index<strlen; index++ )); do
@@ -44,12 +46,12 @@ for (( index=0; index<strlen; index++ )); do
 done
 
 gawk "$tutis" parsed/filtrades.txt \
-  > results/$str-tutis.txt
+  > results/$combo-tutis.txt
 
-red=$(cat results/$str-filtrades.txt | wc -l | xargs)
-dic=$(cat results/$str-totes.txt | wc -l | xargs)
-tut=$(cat results/$str-tutis.txt | wc -l | xargs)
+red=$(cat results/$combo-filtrades.txt | wc -l | xargs)
+dic=$(cat results/$combo-totes.txt | wc -l | xargs)
+tut=$(cat results/$combo-tutis.txt | wc -l | xargs)
 
-echo "${red} FILTRADES DE LA LLISTA REDUÏDA results/$str-filtrades.txt"
-echo "${dic} FILTRADES DEL DICCIONARI COMPLET results/$str-totes.txt"
-echo "${tut} POSSIBLES TUTIS results/$str-tutis.txt"
+echo "${red} FILTRADES DE LA LLISTA REDUÏDA results/$combo-filtrades.txt"
+echo "${dic} FILTRADES DEL DICCIONARI COMPLET results/$combo-totes.txt"
+echo "${tut} POSSIBLES TUTIS results/$combo-tutis.txt"

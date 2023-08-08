@@ -25,7 +25,12 @@ if [ -z "$lletres" ]; then
   exit 1
 fi
 
-if ! [ -s "results/$lletres-filtrades.txt" ];then
+mestra=${lletres:0:1}
+resta=${lletres:1}
+restaordenada=$(echo $resta | grep -o . | sort | tr -d "\n")
+combo="$mestra$restaordenada"
+
+if ! [ -s "results/$combo-filtrades.txt" ];then
   echo "L'arxiu de solucions no existeix, cal executar './run.sh $lletres' abans de filtrar."
   exit
 fi
@@ -103,7 +108,7 @@ fn_final() {
   fi
 }
 
-cat results/$lletres-filtrades.txt \
+cat results/$combo-filtrades.txt \
   | fn_mots \
   | fn_equal \
   | fn_less \
