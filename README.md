@@ -30,7 +30,7 @@ El diccionari inclou variacions gramaticals i conjugacions de verbs. Molts d'aqu
 * sort
 * wc
 * xargs
-* diff
+* tr
 
 ## Preparació dels llistats
 

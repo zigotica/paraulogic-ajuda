@@ -25,16 +25,16 @@ if [ -z "$lletres" ]; then
   exit 1
 fi
 
-mestra=${lletres:0:1}
-resta=${lletres:1}
-restaordenada=$(echo $resta | grep -o . | sort | tr -d "\n")
-combo="$mestra$restaordenada"
+source ./lletres.sh
+ordena $lletres
 
 if ! [ -s "results/$combo-filtrades.txt" ];then
   echo "L'arxiu de solucions no existeix, cal executar './run.sh $lletres' abans de filtrar."
   exit
 fi
 
+# Generem el llistat d'expresions regulars per excloure
+# les paraules que passem via paràmetre -t
 if [ "$mots" ]; then
   trobades=$(echo $mots | sed -e $'s/ o /,/g' | sed -e $'s/,/ /g')
   trobades_arr=($trobades)
