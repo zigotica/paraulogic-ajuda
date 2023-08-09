@@ -114,3 +114,7 @@ Nota: tot i que internament es fan servir, he volgut simplificar l'ús evitant l
 ## Agraïments
 
 A l'equip de [Softcatala](https://github.com/Softcatala), especialment a [Jaume Ortolà](https://github.com/jaumeortola) i [Toni Hermoso](https://github.com/toniher), i a l'equip del Paraulògic pel divertiment.
+
+## Llicència
+
+Mantenim la llicència LGPL v2.1 i GPL v2 que es fa servir al repositori [catalan-dict-tools](https://github.com/Softcatala/catalan-dict-tools/) de [Softcatala](https://github.com/Softcatala/) mencionat anteriorment. Veure els arxius amb els texts complets a la carpeta `licenses`.
