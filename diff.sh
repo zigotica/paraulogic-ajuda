@@ -11,18 +11,12 @@ if ! [ -s "results/$combo-filtrades.txt" ];then
   exit
 fi
 
-# El llistat de diferències es construeix amb
-# els resultats de l'arxiu de solucions total,
-# excloent totes les paraules de l'arxiu de solucions filtrades
-filtrades=$(cat results/$combo-filtrades.txt | tr '\n' ' ')
-trobades_arr=($filtrades)
-llarg=${#trobades_arr[@]}
-
-excloses="! /^${trobades_arr[0]}$/"
-for (( index=1; index<llarg; index++ )); do
-  excloses+=" && ! /^${trobades_arr[index]}$/"
-done
-
-cat results/$combo-totes.txt \
-  | gawk "$excloses"
+# El llistat de diferències es construeix
+# juntant els arxius de solucions del dia
+# (el total i el filtrat sense variacions gramaticals i conjugacions de verbs)
+# ordentant les línies
+# quedant-nos amb les paraules que no estan repetides
+cat results/$combo-filtrades.txt results/$combo-totes.txt \
+  | sort \
+  | uniq -i -u
 

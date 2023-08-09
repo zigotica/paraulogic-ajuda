@@ -31,6 +31,7 @@ El diccionari inclou variacions gramaticals i conjugacions de verbs. Molts d'aqu
 * wc
 * xargs
 * tr
+* uniq
 
 ## Preparació dels llistats
 
