@@ -91,3 +91,9 @@ cat orig/diccionari.txt parsed/parcials/locucions-i-poc-usuals.txt \
   | sort \
   > parsed/totes.txt
 
+# Mostra per pantalla informació agregada dels arxius generats
+red=$(cat parsed/filtrades.txt | wc -l | xargs)
+dic=$(cat parsed/totes.txt | wc -l | xargs)
+
+echo "${red} DICCIONARI REDUÏT parsed/filtrades.txt"
+echo "${dic} DICCIONARI COMPLET parsed/totes.txt"
