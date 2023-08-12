@@ -13,12 +13,12 @@ D'altra banda, arxius per tipologies de paraules trobats al directori del [Dicci
 * [adjectius](https://github.com/Softcatala/catalan-dict-tools/blob/master/diccionari-arrel/adjectius-fdic.txt)
 * [adverbis-lt](https://github.com/Softcatala/catalan-dict-tools/blob/master/diccionari-arrel/adverbis-lt.txt)
 * [adverbis-ment](https://github.com/Softcatala/catalan-dict-tools/blob/master/diccionari-arrel/adverbis-ment-lt.txt)
-* [mots-classificats](https://github.com/Softcatala/catalan-dict-tools/blob/master/diccionari-arrel/dnv/mots-classificats.txt). En aquest cas, i per simplificar l'automatització, primer calia processar manualment els blocs de l'arxiu i quedar-nos exclusivament amb `locucions` i el tercer bloc de la secció `Poc usual`. Aprofitem per reemplaçar manualment els `=` per `;` per simplificar el processament posterior.
+* [mots-classificats](https://github.com/Softcatala/catalan-dict-tools/blob/master/diccionari-arrel/dnv/mots-classificats.txt). En aquest cas, ens quedem amb les linies inicials fins al bloc `Ja acceptats com a multiparaules` i fem un tractament especial per simplificar el processament posterior.
 * [noms](https://github.com/Softcatala/catalan-dict-tools/blob/master/diccionari-arrel/noms-fdic.txt)
 * [resta](https://github.com/Softcatala/catalan-dict-tools/blob/master/diccionari-arrel/resta-lt.txt)
 * [verbs](https://github.com/Softcatala/catalan-dict-tools/blob/master/diccionari-arrel/verbs-fdic.txt)
 
-Aquests arxius es troben a la carpeta `orig` d'aquest repositori.
+Aquests arxius es troben a la carpeta `orig` d'aquest repositori, i s'actualitzen cada cop que executem `./update.sh`.
 
 El diccionari inclou variacions gramaticals i conjugacions de verbs. Molts d'aquests mots no s'accepten al Paraulògic, però mantindrem el llistat de totes formes per contrastar opcions. El llistat processat que construirem a partir del diccionari arrel és molt més reduït.
 
@@ -32,6 +32,7 @@ El diccionari inclou variacions gramaticals i conjugacions de verbs. Molts d'aqu
 * xargs
 * tr
 * uniq
+* curl
 
 ## Preparació dels llistats
 

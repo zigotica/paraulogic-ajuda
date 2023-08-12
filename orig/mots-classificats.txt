@@ -1,3 +1,7 @@
+#infantil 
+palmineta;;;;femení;infantil;
+palmineta;;;;loc. verb.;;
+
 #locucions
 heus ací;;;;loc. orac.;;
 palota;;;;loc. verb.;; no saber palota
@@ -23,7 +27,213 @@ osades;;;;loc. adv.;; a osades > ausades
 bif;;;;loc. orac.;col·loquial; 	lo mateix té bif que baf 
 borbolló;;;;loc. adv.;;
 borbotó;;;;loc. adv.;;
+
+galligota;;;;loc. adv.;;
+
+recontra;;;;interjecció;;
+catso;;;;interjecció;;
+ea;;;;interjecció;;
+repatxo;;;;interjecció;;
+fole;;;;interjecció;col·loquial;
+fótrins;;;;interjecció;col·loquial;
+fotris;;;;interjecció;col·loquial;
+collins;;;;interjecció;col·loquial;
+collinsa;;;;interjecció;col·loquial;
+collinses;;;;interjecció;col·loquial;
+collona;;;;interjecció;col·loquial;
+cotxi;;;;interjecció;;
+gurri;;;;interjecció;;
+hosti;;;;interjecció;col·loquial;
+ie;;;;interjecció;col·loquial;
+malòrum;;;;interjecció;col·loquial;
+mante;;;;interjecció;col·loquial;
+muix;;;;interjecció;;
+catsoleta;;;;interjecció;;
+
+mitan;;;;loc. prep.;col·loquial; a mitan > a mitjan
+
+lento;italià;;;adverbi;;
+lento;italià;;;masculí;;
+vivace;italià;;;adverbi;;
+vivace;italià;;;masculí;;
+divertimento;italià;;;masculí;;
+diminuendo;italià;;;adverbi i masculí;;
+fabliau;francés;;;masculí;;
+fettuccini;italià;;;masculí;;
+franglais;francés;;;masculí;;
+giocoso;italià;-a;;adjectiu;;
+maestoso;italià;;;adverbi;;
+maestoso;italià;;;masculí;;
+nature;francés;;;adjectiu s.l.;;
+pull;;;;interjecció;;
+reprise;francés;;;masculí;;
+
+tablet;anglés;;;femení;;
+
+herodes;;;;loc. verb.;;
+herodes=categories: MI;fonts: DNV;
+hermes=categories: MI;fonts: DNV;
+moisès=categories: M;fonts: DNV;
+
+ne;;;;pronom;;
+
+#vulgar 
+
+calforro
+
+astò;;;;pronom;col·loquial;
+
+
+#Històric
+buçó=categories: M;fonts: DNV;
+
+#marca d'antic
+realesa
+realme
+resplandent
+resplandir
+ab
+abciac
+monipodi
+acén;;;;adverbi;antic;
+alferecia;;;;femení;antic;
+amenar;;;;verb transitiu;antic;
+aninou;;;;masculí;antic;
+astrosia;;;;femení;antic;
+avallada;;;;femení;antic;
+avallar;;;;verb transitiu i intransitiu;antic;
+calònia;;;;femení;antic;
+ceda;;;;femení;antic;
+centil·la;;;;femení;antic;
+coixinal;;;;masculí;antic;
+coldre;;;;verb transitiu;antic;
+consemble;;;;adjectiu;antic;
+crestiri;;;;masculí;antic;
+cristiri;;;;masculí;antic;
+decacordi;;;;masculí;antic;
+deixelar;;;;verb transitiu;antic;
+denans;;;;adverbi;antic;
+denant;;;;adverbi;antic;
+denantar;;;;verb transitiu;antic;
+depart;;;;masculí;antic;
+desalt;;;;masculí;antic;
+desaltar;;;;verb intransitiu i pronominal;antic;
+despuix;;;;adverbi;antic;
+dessots;;;;adverbi;antic;
+desvirginesa;;;;femení;antic;
+eixert;;;;masculí;antic;
+eixorar;;;;verb intransitiu;antic;
+eli;;;;loc. adv.;antic;
+ensagristada;;;;adjectiu i femení;antic;
+enza;;;;femení;antic;
+escient;;;;adjectiu;antic;
+escondir;;;;verb transitiu i pronominal;antic;
+esquimar;;;;verb transitiu;antic;
+fastijar;;;;verb transitiu;antic;
+fembril;;;;adjectiu;antic;
+femenil;;;;adjectiu;antic;
+feriar;;;;verb intransitiu;antic;
+fiblall;;;;masculí;antic;
+fillar;;;;verb intransitiu;antic;
+flagrància;;;;femení;antic;
+forfer;;;;verb intransitiu;antic;
+frasqueries;;;;femení plural;antic;
+frasques;;;;femení plural;antic;
+fòndec;;;;masculí;antic;
+gabellar;;;;verb transitiu;antic;
+gara;;;;interjecció;antic;
+ginea;;;;femení;antic;
+ginestada;;;;femení;antic;
+glai;;;;masculí;antic;
+guardejar;;;;verb transitiu;antic;
+hic;;;;pronom;antic;
+hoc;;;;adverbi;antic;
+honta;;;;femení;antic;
+infernat;;-ada;;adjectiu;antic;
+injungir;;;;verb transitiu;antic;
+jatsia;;;;conjunció;antic;
+jaïlla;;;;femení;antic;
+jornea;;;;femení;antic;
+jus;;;;adverbi i preposició;antic;
+lausenger;;-a;;adjectiu;antic;
+lausengeria;;;;femení;antic;
+lladoncs;;;;adverbi;antic;
+llaguiar;;;;verb transitiu;antic;
+lloament;;;;masculí;antic;
+llàdria;;;;femení;antic;
+magistre;;-a;;masculí i femení;antic;
+malauirat;;-ada;;adjectiu;antic;
+marroc;;;;adjectiu;antic;
+martre;;;;masculí i femení;antic;
+medicinar;;;;verb transitiu;antic;
+mesellia;;;;femení;antic;
+monsényer;;;;masculí;antic;
+monçónega;;;;femení;antic;
+null;;-a;;adjectiu;antic;
+obte;;;;masculí;antic;
+ops;;;;loc. prep.;antic;
+ops;;;;masculí;antic;
+orifany;;;;masculí;antic;
+paltonera;;;;femení;antic;
+parencejar;;;;verb intransitiu;antic;
+pecoral;;;;adjectiu;antic;
+percint;;;;masculí;antic;
+profembra;;;;femení;antic;
+putanejar;;;;verb intransitiu;antic;
+quatridià;;-ana;;adjectiu;antic;
+quisvol;;;;pronom;antic;
+rampagoll;;;;masculí;antic;
+realenc;;;;masculí;antic;
+samit;;;;masculí;antic;
+sodegar;;;;verb transitiu;antic;
+sorgidor;;;;masculí;antic;
+sényer;;;;masculí;antic;
+tembre;;;;verb transitiu;antic;
+tortugat;;;;masculí;antic;
+tracmany;;;;masculí;antic;
+tracmanyar;;;;verb intransitiu;antic;
+ultracuidar;;;;verb intransitiu;antic;
+urqués;;-esa;;adjectiu;antic;
+varió;;;;masculí;antic;
+vijares;;;;loc. adv.;antic;
+vijares;;;;loc. verb.;antic;
+vijares;;;;masculí invariable;antic;
+
+
+
+
+#casos particulars
+a (la) coixcoix [d'ús poc estés, i ortografia dubtosa: coix-coix] INTRODUÏT
+benigembla [Es confon amb el topònim Benigembla]
+[totes les terminacions -iste/-ista
+anda;;;;femení;; [El tenim en plural: andes. "Anda" pot causar confusions.]
+
+#dubtós
+acarrassar;;;;verb pronominal;; [la documentació és contradictòria]
+
 #Poc usual, pot causar inconvenients?
+buçó;;;;masculí;;
+pito -a=categories: A;fonts: DNV,col·loquial; pito -a;;adj > ben plantat
+
+reprocés;;;-essos;masculí;;
+eve=categories: F;fonts: DNV;
+almussafes=categories: MI;fonts: DNV;
+pirineus=categories: MI;fonts: DNV;
+pima;;;;masculí i femení;;
+pima=categories: A;fonts: DNV;
+undulat;;;;adjectiu invariable;; [tipus de núvol: undulatus]
+òscar=categories: M;fonts: DNV;
+logar-se;;;;verb pronominal;;
+fox-terrier;anglés;;;masculí;; [entrat sense guionet]
+arraigades;;;;femení plural;;
+supra;llatí;;;adverbi;;
+infra;llatí;;;adverbi;;
+apud;llatí;;;preposició;;
+volanda=categories: F;fonts: DNV;
+can;;;;contracció;;
+carar=categories: V;model:cantar;fonts: DNV;
+edam=categories: M;fonts: DNV;
+
 abornar;;;;verb transitiu;;
 acontényer;;;;verb intransitiu;; [també acontènyer]
 acurtadura;;;;femení;;
@@ -35,24 +245,117 @@ alegar;;;;verb transitiu;; [sinònim de aregar, es confon amb al·legar]
 ya;;;yas;femení;; [En general els noms de lletres àrabs i hebrees no es posen en el diccionari. Són paraules problemàtiques.]
 ra;;;ras;femení;;
 dha;;;dhas;femení;;
-dhal;categories: F;fonts: DNV;
+dhal=categories: F;fonts: DNV;
 qaf;;;;famení;;
 ba;;;bas;femení;;
-sad;categories: F;fonts: DNV;
+sad=categories: F;fonts: DNV;
 z;;;;femení;;
 kha;;;khas;femení;;
 zay;;;;femení;;
 dad;;;;;;
 dal;;;;fe;;
 tha;;;thas;femení;;
-sin;categories: F;fonts: DNV;
-ka;categories: M;fonts: DNV;
-kaf;categories: F;fonts: DNV;
+sin=categories: F;fonts: DNV;
+ka=categories: M;fonts: DNV;
+kaf=categories: F;fonts: DNV;
 aquet;;-a;;adjectiu;;
 aquet;;-a;;masculí;;
-corretejar [DNV i IEC, però val més no posar-lo en el diccionari. És arcaisme i es confon amb castellanisme: corretear;belluguejar]
+corretejar [DNV i IEC, però val més no posar-lo en el diccionari. És arcaisme i es confon amb castellanisme: corretear=belluguejar]
 judia;;;;femení;;
 sir;anglés;;;masculí;; [entrat en majúscules]
 platirí [eliminat per l'IEC, s'ha eliminat]
 soldre [però és irrellevant, perquè no s'usa mai en infinitiu] FET
 veixell [segons DCVB, grafia antiga]
+
+#incompatibilitats DIEC - DNC
+frànkfurt [frankfurt (GDLC), Frankfurt (termcat)]
+barça [L'IEC l'ha canviat a "barsa". En tot cas són formes secundàries. Confusió amb "Barça" (nom propi). És preferible no posar-ne cap en el diccionari.]
+pàrkinson [Parkinson]
+alzhèimer [Alzheimer]
+batidor [L'IEC l'ha eliminat]
+a mata-degolla (DNV), a matadegolla (IEC) // posats tots dos
+
+vérbola [vèrbola (DIEC)]
+trémolo [trèmolo (DIEC)]
+télex;;;;masculí;; [tèlex (DIEC)]
+ténia;;;;femení;; [tènia (DIEC)]
+papagall [IEC: papagai]
+sàndwitx [DIEC sandvitx]
+sandwitxera;;;;femení;;
+sandwitxeria;;;;femení;;
+sandwich
+hittita [IEC: hitita]
+axamfranar [sic! per aixamfranar?] 
+axambergat [sic!]
+
+
+#errors en el DNV
+zoïsita [segons termcat, DIEC, GDLC: zoisita]
+nimbostratus [hauria de ser nimboestratus]
+subjectivització [paraula mal formada si l'únic verb acceptat és "subjectivar"]
+
+#Ja acceptats com a multiparaules
+bossa nova;portugués;;;femení;;
+
+# Per a acceptar
+
+
+
+
+# Ja revisats. No entren en el diccionari
+almussafes;;;;masculí invariable;;
+atanyent;;;;adjectiu;;
+b;;;;femení;;
+bossa nova;portugués;;;femení;;
+C;;;;femení;;
+carar;;;;verb transitiu;;
+crown;;;;locució;;
+culastró;;;;loc. adv. s.l.;;
+dhal;;;;femení;;
+edam;;;;masculí;;
+ertzaintza;basc;;;femení;;
+eurocambra;;;;femení;;
+eurotúnel;;;;masculí;;
+eurovisió;;;;femení;;
+eve;;;;femení;;
+f;;;;femení;;
+hermes;;;;masculí invariable;;
+heus ací;;;;loc. orac.;;
+indole;;;;masculí;;
+infermetat;;;;femení;;
+j;;;;femení;;
+k;;;;femení;;
+ka;;;;masculí;;
+kaf;;;;femení;;
+logar-se;;;;verb pronominal;;
+marathí;;;;masculí;;
+marathí;;;;adjectiu;;
+òscar;;;;masculí;;
+p;;;;femení;;
+panxeta;;;;loc. verb.;;
+pirineus;;;;masculí invariable;;
+q;;;;femení;;
+r;;;;femení;;
+sad;;;;femení;;
+santfermins;;;;masculí plural;;
+sin;;;;femení;;
+t;;;;femení;;
+v;;;;femení;;
+vero;;;;loc. verb.;;
+vet ací;;;;loc. orac.;;
+volanda;;;;femení;;
+w;;;;femení;;
+x;;;;femení;;
+x;;;;locució;;
+soldre=categories: V;model:xxxx;fonts: DNV;
+soldre=categories: V;model:xxxx;fonts: DNV;
+acras;;;;masculí invariable;;
+xi;;;;interjecció;;
+skay;anglés;;;masculí;; [no és anglès. És la marca registrada Skai ]
+jovenall;;;;masculí i femení;;  [fa el plural en "jovenalla"]?
+pentecosta;;;;femení;;
+pentecostés;;;;masculí invariable;;
+
+
+#Crear regla
+estandard;; confusió estandard/estàndard

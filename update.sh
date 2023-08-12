@@ -5,6 +5,16 @@
 
 mkdir parsed parsed/parcials results
 
+# Actualitzaceo dels arxius originals
+# -----------------------------------
+
+cd orig
+for url in https://raw.githubusercontent.com/Softcatala/catalan-dict-tools/master/diccionari-arrel/{adjectius-fdic.txt,adverbis-lt.txt,adverbis-ment-lt.txt,dnv/mots-classificats.txt,noms-fdic.txt,resta-lt.txt,verbs-fdic.txt}; do
+  curl -O "$url"
+done;
+unset url;
+curl -O "https://raw.githubusercontent.com/Softcatala/catalan-dict-tools/master/resultats/lt/diccionari.txt"
+cd ..
 
 # Pre-processat de varis arxius del Diccionari Arrel
 # --------------------------------------------------
@@ -27,16 +37,30 @@ cat orig/adverbis* \
   | awk '{print $1}' \
   > parsed/parcials/adverbis.txt
 
-# Mots classificats (locucions i poc usuals)
-# Procés similar als adjectius, tot i que més simple.
-# Per començar calia processar manualment els blocks de l'arxiu i quedar-nos exclusivament amb `locucions`
-# i el tercer bloc de la secció `Poc usual`.
-# Aprofitem per reemplaçar manualment els `=` per `;` i partim en columnes per `;`.
-# Després ens quedem la primera paraula.  
+# Mots classificats
+# Procés similar als adjectius, tot i que més complicat perquè fem més tractament.
+# Per començar simplifiquem l'arxiu i ens quedar amb el contingut anterior a #Ja acceptats com a multiparaules
+# Aprofitem per reemplaçar els `=` per `;`
+# Partim en columnes per `;` i ens quedem la primera part.
+# Partim en columnes per `[` i ens quedem la primera part.
+# A les línies que comencen per # canviem espais i , per punts.
+# Partim les línies on hi ha coma en vàries línies
+# Partim en columnes per `/` i ens quedem la primera part.
+# Finalment les línies amb espai són convertides a multilínia.
 
-awk -F';' '{print $1}' orig/mots-classificats.txt \
-  | awk '{print $1}' \
-  > parsed/parcials/locucions-i-poc-usuals.txt
+cat orig/mots-classificats.txt \
+  | sed '/#Ja acceptats com a multiparaules/,$d' \
+  | sed "s/=/;/g" \
+  | awk -F';' '{print $1}' \
+  | awk -F'[' '{print $1}' \
+  | sed '/^#/y/,/./' \
+  | sed '/^#/y/ /./' \
+  | sed "s/, /\n/g" \
+  | awk -F',' '{print $1}' \
+  | awk -F'/' '{print $1}' \
+  | awk '{print $1, $2}' \
+  | awk 'BEGIN { FS = " "; OFS = "\n" } { print $1, $2 }' \
+  > parsed/parcials/mots-classificats.txt
 
 # Noms
 # Procés similar als adjectius, tot i que més simple.
@@ -85,7 +109,7 @@ cat parsed/parcials/* \
   | sort \
   > parsed/filtrades.txt
 
-cat orig/diccionari.txt parsed/parcials/locucions-i-poc-usuals.txt \
+cat orig/diccionari.txt parsed/parcials/mots-classificats.txt \
   | awk '{print $1}' \
   | eliminacions \
   | sort \
