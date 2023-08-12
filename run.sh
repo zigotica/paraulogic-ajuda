@@ -3,24 +3,18 @@
 # ./run.sh abcdefg
 # La primera de les lletres és la obligatòria a totes les paraules del dia
 
-source ./lletres.sh
-ordena $1
+source ./utils.sh
+ordena_lletres_dia $1
 
 # Generem llistat de lletres excloses a partir de les lletres base i vocals accentuades
 # Això ens permetrà obtenir paraules amb accents més endavant
-straccented=$(echo $str | sed "s/a/$as/g" | sed "s/e/$es/g" | sed "s/i/$is/g" | sed "s/o/$os/g" | sed "s/u/$us/g")
-excloses=$(echo "${as}bcçd${es}fgh${is}jklmn${os}pqrst${us}vwxyz" | sed "s/[$straccented]//g")
-strlen=${#str}
+excloses=$(echo $abecedari_accentuat | sed "s/[$lletres_dia_accentuades]//g")
+llargaria_lletres_dia=${#lletres_dia}
 
-echo "MESTRA: $mestra RESTA: $restaordenada EXCLOSES: $excloses"
+echo "MESTRA: $mestra RESTA: $resta_ordenada EXCLOSES: $excloses"
 
 # Si la mestra és una vocal, volem els seus accents per la futura expresió regular
-accentmestra=$(echo ${mestra}s)
-if [[ $mestra =~ [aeiou] ]]; then
-  mestra="${!accentmestra}"
-else
-  mestra="${mestra}"
-fi
+mestra=$(accentua_lletra $mestra)
 
 # Genera l'arxiu de solucions filtrades per la combinació del dia
 gawk "/[$mestra]/" parsed/filtrades.txt \
@@ -33,18 +27,12 @@ gawk "/[$mestra]/" parsed/totes.txt \
   > results/$combo-totes.txt
 
 # Generem el llistat d'expresions regulars per trobar els Tutis
-# Un tuti no ha d'incloure cap lletra exclosa, però sí totes
-# les lletres que passem via paràmetre
-# Poden incloure vocals accentuades, encara que no les haguem passat
+# Un tuti ha d'incloure totes les lletres del dia
+# Poden incloure vocals accentuades
 tutis="! /[$excloses]/"
-for (( index=0; index<strlen; index++ )); do
-  letter=${str:index:1}
-  accents=$(echo ${letter}s)
-  if [[ $letter =~ [aeiou] ]]; then
-    tutis+=" && /[${!accents}]/"
-  else
-    tutis+=" && /${str:index:1}/"
-  fi
+for (( index=0; index<llargaria_lletres_dia; index++ )); do
+  letter=$(accentua_lletra ${lletres_dia:index:1})
+  tutis+=" && /[${letter}]/"
 done
 
 # Genera l'arxiu de tutis per la combinació del dia

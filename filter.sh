@@ -25,8 +25,8 @@ if [ -z "$lletres" ]; then
   exit 1
 fi
 
-source ./lletres.sh
-ordena $lletres
+source ./utils.sh
+ordena_lletres_dia $lletres
 
 if ! [ -s "results/$combo-filtrades.txt" ];then
   echo "L'arxiu de solucions no existeix, cal executar './run.sh $lletres' abans de filtrar."
@@ -84,6 +84,14 @@ fn_more() {
   fi
 }
 
+# Si la cadena a filtrar conté algún accent, la mantenim
+# Si no conté cap accent, els generem com a regex
+if [ "$inici" ]; then
+  if [[ $(conte_accent $inici) == "false" ]]; then
+    inici=$(accentua_cadena_regex $inici)
+  fi
+fi
+
 fn_inici() {
   if [ "$inici" ]; then
     gawk "/^$inici/"
@@ -92,6 +100,14 @@ fn_inici() {
   fi
 }
 
+# Si la cadena a filtrar conté algún accent, la mantenim
+# Si no conté cap accent, els generem com a regex
+if [ "$conte" ]; then
+  if [[ $(conte_accent $conte) == "false" ]]; then
+    conte=$(accentua_cadena_regex $conte)
+  fi
+fi
+
 fn_conte() {
   if [ "$conte" ]; then
     gawk "/$conte/"
@@ -99,6 +115,14 @@ fn_conte() {
     gawk '{ print $0 }'
   fi
 }
+
+# Si la cadena a filtrar conté algún accent, la mantenim
+# Si no conté cap accent, els generem com a regex
+if [ "$final" ]; then
+  if [[ $(conte_accent $final) == "false" ]]; then
+    final=$(accentua_cadena_regex $final)
+  fi
+fi
 
 fn_final() {
   if [ "$final" ]; then

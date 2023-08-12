@@ -3,8 +3,8 @@
 # ./filter.sh abcdefg
 # La primera de les lletres és la obligatòria a totes les paraules del dia
 
-source ./lletres.sh
-ordena $1
+source ./utils.sh
+ordena_lletres_dia $1
 
 if ! [ -s "results/$combo-filtrades.txt" ];then
   echo "L'arxiu de solucions no existeix, cal executar './run.sh $combo' abans de veure les diferències entre el diccionari filtrat i complet."
