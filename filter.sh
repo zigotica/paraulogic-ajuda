@@ -28,7 +28,7 @@ fi
 
 ordena_lletres_dia $lletres
 
-if ! [ -s "results/$combo-filtrades.txt" ];then
+if ! [ -s "results/$combo-diccionari.txt" ];then
   err "L'arxiu de solucions no existeix, cal executar './run.sh $lletres' abans de filtrar."
 fi
 
@@ -134,7 +134,7 @@ fn_final() {
 }
 
 
-resultats=$(cat results/$combo-filtrades.txt \
+resultats=$(cat results/$combo-diccionari.txt \
   | fn_mots \
   | fn_equal \
   | fn_less \

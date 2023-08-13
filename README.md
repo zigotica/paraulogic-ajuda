@@ -4,11 +4,7 @@ Aquest repositori és un conjunt d'eines per incentivar l'acabament del Paraulò
 
 ## Arxius originals
 
-Farem servir arxius del repositori [catalan-dict-tools](https://github.com/Softcatala/catalan-dict-tools/) de [Softcatala](https://github.com/Softcatala/). Ens basarem en un parell de conjunts de dades. 
-
-Per una banda, el [diccionari](https://github.com/Softcatala/catalan-dict-tools/blob/master/resultats/lt/diccionari.txt) pre-generat amb les seves eines. 
-
-D'altra banda, arxius per tipologies de paraules trobats al directori del [Diccionari-Arrel](https://github.com/Softcatala/catalan-dict-tools/blob/master/diccionari-arrel):
+Farem servir arxius del repositori [catalan-dict-tools](https://github.com/Softcatala/catalan-dict-tools/) de [Softcatala](https://github.com/Softcatala/). Ens basarem en arxius per tipologies de paraules trobats al directori del [Diccionari-Arrel](https://github.com/Softcatala/catalan-dict-tools/blob/master/diccionari-arrel):
 
 * [adjectius](https://github.com/Softcatala/catalan-dict-tools/blob/master/diccionari-arrel/adjectius-fdic.txt)
 * [adverbis-lt](https://github.com/Softcatala/catalan-dict-tools/blob/master/diccionari-arrel/adverbis-lt.txt)
@@ -20,7 +16,7 @@ D'altra banda, arxius per tipologies de paraules trobats al directori del [Dicci
 
 Aquests arxius es troben a la carpeta `orig` d'aquest repositori, i s'actualitzen cada cop que executem `./update.sh`.
 
-El diccionari inclou variacions gramaticals i conjugacions de verbs. Molts d'aquests mots no s'accepten al Paraulògic, però mantindrem el llistat de totes formes per contrastar opcions. El llistat processat que construirem a partir del diccionari arrel és molt més reduït.
+El [diccionari complet](https://github.com/Softcatala/catalan-dict-tools/blob/master/resultats/lt/diccionari.txt) inclou variacions gramaticals i conjugacions de verbs. Molts d'aquests mots no s'accepten al Paraulògics, per la qual cosa no el fem servir. El diccionari que construirem a partir del diccionari arrel és molt més reduït.
 
 ## Requisits
 
@@ -31,10 +27,9 @@ El diccionari inclou variacions gramaticals i conjugacions de verbs. Molts d'aqu
 * wc
 * xargs
 * tr
-* uniq
 * curl
 
-## Preparació dels llistats
+## Preparació del diccionari
 
 ```bash
 ./update.sh
@@ -43,15 +38,11 @@ El diccionari inclou variacions gramaticals i conjugacions de verbs. Molts d'aqu
 Hauriem de veure missatges a mida que es van descarregant i pre-processant els arxius originals, i al final com a resum, quelcom similar a això:
 
 ```
-Generant l'arxiu de diccionari filtrat (sense variacions)... parsed/filtrades.txt
-Generant l'arxiu de diccionari complet... parsed/totes.txt
+Generant l'arxiu de diccionari filtrat (sense variacions)... parsed/diccionari.txt
 
-Informació agregada dels arxius generats
-        149144   Diccionari reduït
-        876375   Diccionari complet
+Informació agregada de l'arxiu generat
+        149284   Diccionari reduït
 ```
-
-Nota: per simplificar el processament de les dades, s'eliminen els mots de menys de 3 lletres.
 
 ## Generar solució de paraules del dia
 
@@ -66,34 +57,16 @@ MESTRA g RESTRA orsnac EXCLOSES bçdeēéěèëfhiīíǐìïjklmpqtuūúǔùǖǘ
 
 Calculant si la mestra pot tenir accents...
 
-Generant l'arxiu de solucions filtrades per la combinació del dia... results/gacnors-filtrades.txt
-Generant l'arxiu de solucions (totes) per la combinació del dia... results/gacnors-totes.txt
-
+Generant l'arxiu de solucions filtrades per la combinació del dia... results/gacnors-diccionari.txt
 Generant les expresions regulars per trobar els tutis...
 Generant l'arxiu de tutis per la combinació del dia... results/gacnors-tutis.txt
 
 Informació agregada dels arxius generats
         127      Filtrades de la llista reduïda
-        306      Filtrades del diccionari complet
         2        Possibles Tutis
 ```
 
-Com veiem, es generen tres arxius, `resultats/gacnors-filtrades.txt`, `resultats/gacnors-totes.txt` i `results/gacnors-tutis.txt`.
-
-Idealment totes les paraules del dia han de sortir al llistat de paraules filtrades. Podem treure un llistat de les diferències dels dos llistats si fem:
-
-```bash
-./diff.sh gacnors
-```
-
-...i retornaria alguna cosa similar a:
-
-```
-Calculant diferències...
-
-Resultats... (209)
-agar-agars agarr ...
-```
+Com veiem, es generen dos arxius, `resultats/gacnors-diccionari.txt` i `results/gacnors-tutis.txt`.
 
 ## Filtrat de paraules del dia
 
@@ -109,7 +82,7 @@ La primera de les lletres és la obligatòria a totes les paraules del dia.
 
 Si no passem més arguments, el filtrat és equivalent a veure l'arxiu de resultats del dia. En tots els casos, el programa retorna el llistat de paraules per pantalla, no escriu cap arxiu.
 
-Podem afegir d'un a quatre arguments extra per filtrar paraules que tinguin un llarg determinat, o que no estiguin dins de la llista de paraules que ja hem trobat prèviament.
+Podem afegir arguments extra per filtrar paraules que tinguin un llarg determinat, que continguin un text a alguna posició, o que no estiguin dins de la llista de paraules que ja hem trobat prèviament.
 
 Aquests arguments són:
 
@@ -121,7 +94,7 @@ Aquests arguments són:
 * `-f` per filtrar paraules que finalitzen per una cadena de text.
 * `-t` per filtrar paraules que no estiguin a un llistat previ. El llistat entre cometes pot ser un copy/paste de les paraules trobades al paraulògic. Normalment cada paraula va separada per coma, però de vegades una coincidència pot incloure dues o més paraules separades per ` o `. Per exemple, "ala o alà, arrel, mal".
 
-Els filtres es van acumulant, de forma que podem filtrar paraules que no estiguin a un llistat previ i que tinguin un llarg determinat. Per exemple:
+Per exemple:
 
 ```bash
 ./filter.sh -p gacnors -e 5
@@ -136,7 +109,7 @@ Resultats... (32)
 agràs agror agrós cagar carga conga ganga ganós gansa ganso garra garró garsa garsó gasar gasca gascó gasós gassa gassó gorga gorra gosar gossa grana groga sango sarga sogar sogra sorgo
 ```
 
-Podem combinar filtres:
+Els filtres es poden combinar, de forma que podem filtrar paraules que no estiguin a un llistat previ i que tinguin un llarg determinat. Per exemple:
 
 ```bash
 ./filter.sh -p gacnors -m 4 -t "carga, conga, ganga, gossa, grana"

@@ -17,7 +17,6 @@ for url in https://raw.githubusercontent.com/Softcatala/catalan-dict-tools/maste
   curl -O "$url"
 done;
 unset url;
-curl -O "https://raw.githubusercontent.com/Softcatala/catalan-dict-tools/master/resultats/lt/diccionari.txt"
 cd ..
 
 # Pre-processat de varis arxius del Diccionari Arrel
@@ -101,36 +100,22 @@ awk -F'=' '{print $1}' orig/verbs-fdic.txt \
   | awk '{print $1}' \
   > parsed/parcials/verbs.txt
 
-# Generar arxius amb totes o filtrades sense variacions
+# Generar arxiu amb totes les paraules sense variacions
 # -----------------------------------------------------
 # Concatenar arxius
-# Eliminar: linies que no comencin per minúscula, duplicats, mots amb nombres, paraules de menys de 3 lletres
+# Eliminar: linies que no comencin per minúscula, duplicats, mots amb nombres
 # Ordenar
 
-eliminacions() {
-  awk '$0 ~ /^[[:lower:]]/' \
+echo -ne "\n${YEL}Generant l'arxiu de diccionari (sense variacions)...${RST} parsed/diccionari.txt"
+cat parsed/parcials/* \
+  | awk '$0 ~ /^[[:lower:]]/' \
   | awk '!visited[$0]++' \
   | awk '! /[0-9]/' \
-  | awk 'length > 2'
-}
-
-echo -ne "\n${YEL}Generant l'arxiu de diccionari filtrat (sense variacions)...${RST} parsed/filtrades.txt"
-cat parsed/parcials/* \
-  | eliminacions \
   | sort \
-  > parsed/filtrades.txt
-
-echo -ne "\n${YEL}Generant l'arxiu de diccionari complet...${RST} parsed/totes.txt\n"
-cat orig/diccionari.txt parsed/parcials/mots-classificats.txt \
-  | awk '{print $1}' \
-  | eliminacions \
-  | sort \
-  > parsed/totes.txt
+  > parsed/diccionari.txt
 
 # Mostra per pantalla informació agregada dels arxius generats
-red=$(cat parsed/filtrades.txt | wc -l | xargs)
-dic=$(cat parsed/totes.txt | wc -l | xargs)
+red=$(cat parsed/diccionari.txt | wc -l | xargs)
 
-echo -ne "\n${YEL}Informació agregada dels arxius generats${RST}"
+echo -ne "\n${YEL}Informació agregada de l'arxiu generat${RST}"
 echo -ne "\n\t${GRN}${red}${RST}\t Diccionari reduït"
-echo -ne "\n\t${GRN}${dic}${RST}\t Diccionari complet"
