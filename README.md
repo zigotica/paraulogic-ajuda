@@ -40,28 +40,59 @@ El diccionari inclou variacions gramaticals i conjugacions de verbs. Molts d'aqu
 ./update.sh
 ```
 
+Hauriem de veure missatges a mida que es van descarregant i pre-processant els arxius originals, i al final com a resum, quelcom similar a això:
+
+```
+Generant l'arxiu de diccionari filtrat (sense variacions)... parsed/filtrades.txt
+Generant l'arxiu de diccionari complet... parsed/totes.txt
+
+Informació agregada dels arxius generats
+        149144   Diccionari reduït
+        876375   Diccionari complet
+```
+
 Nota: per simplificar el processament de les dades, s'eliminen els mots de menys de 3 lletres.
 
 ## Generar solució de paraules del dia
 
 ```bash
-./run.sh abcdefg
+./run.sh GORSNAC
 ```
 
-La primera de les lletres és la obligatòria a totes les paraules del dia. Hauriem de rebre un resultat similar:
+La primera de les lletres és la obligatòria a totes les paraules del dia. Hauriem de veure un resultat similar a:
 
 ```
-MESTRA: a RESTA: bcdefg EXCLOSES: çhijklmnopqrstuvwxyz
-57 FILTRADES DE LA LLISTA REDUÏDA results/abcdefg-filtrades.txt
-92 FILTRADES DEL DICCIONARI COMPLET results/abcdefg-totes.txt
+MESTRA g RESTRA orsnac EXCLOSES bçdeēéěèëfhiīíǐìïjklmpqtuūúǔùǖǘǚǜüvwxyz
+
+Calculant si la mestra pot tenir accents...
+
+Generant l'arxiu de solucions filtrades per la combinació del dia... results/gacnors-filtrades.txt
+Generant l'arxiu de solucions (totes) per la combinació del dia... results/gacnors-totes.txt
+
+Generant les expresions regulars per trobar els tutis...
+Generant l'arxiu de tutis per la combinació del dia... results/gacnors-tutis.txt
+
+Informació agregada dels arxius generats
+        127      Filtrades de la llista reduïda
+        306      Filtrades del diccionari complet
+        2        Possibles Tutis
 ```
 
-Com veiem, es generen dos arxius, `resultats/abcdefg-filtrades.txt` i `resultats/abcdefg-totes.txt`.
+Com veiem, es generen tres arxius, `resultats/gacnors-filtrades.txt`, `resultats/gacnors-totes.txt` i `results/gacnors-tutis.txt`.
 
 Idealment totes les paraules del dia han de sortir al llistat de paraules filtrades. Podem treure un llistat de les diferències dels dos llistats si fem:
 
 ```bash
-./diff.sh abcdefg
+./diff.sh gacnors
+```
+
+...i retornaria alguna cosa similar a:
+
+```
+Calculant diferències...
+
+Resultats... (209)
+agar-agars agarr ...
 ```
 
 ## Filtrat de paraules del dia
@@ -71,7 +102,7 @@ Un cop portem una estona jugant, podem voler saber quines de les possibles soluc
 Com a mínim, hem de passar les lletres del dia, amb l'argument `-p`:
 
 ```bash
-./filter.sh -p abcdefg"
+./filter.sh -p gacnors
 ```
 
 La primera de les lletres és la obligatòria a totes les paraules del dia.
@@ -93,23 +124,39 @@ Aquests arguments són:
 Els filtres es van acumulant, de forma que podem filtrar paraules que no estiguin a un llistat previ i que tinguin un llarg determinat. Per exemple:
 
 ```bash
-./filter.sh -p abcdefg -e 5
+./filter.sh -p gacnors -e 5
 ```
 
-En aquest cas, el programa retorna el llistat de paraules amb un llarg de 5 lletres.
+En aquest cas, el programa retorna el llistat de paraules amb un llarg de 5 lletres:
+
+```
+Calculant filtres...
+
+Resultats... (32)
+agràs agror agrós cagar carga conga ganga ganós gansa ganso garra garró garsa garsó gasar gasca gascó gasós gassa gassó gorga gorra gosar gossa grana groga sango sarga sogar sogra sorgo
+```
+
+Podem combinar filtres:
 
 ```bash
-./filter.sh -p abcdefg -m 7 -t "ala o alà, arrel, mal"
+./filter.sh -p gacnors -m 4 -t "carga, conga, ganga, gossa, grana"
 ```
 
-En aquest cas, el programa retorna el llistat de paraules amb un llarg de més de 7 lletres i que no siguin cap de les 4 paraules del llistat (ala o alà, arrel, mal).
+En aquest cas, el programa retorna el llistat de paraules amb un llarg de més de 4 lletres i que no siguin cap de les paraules del llistat (que han d'anar separades per coma i entre cometes). O també:
 
 
 ```bash
-./filter.sh -p abcdefg -m 7 -i "va"
+./filter.sh -p gacnors -e 5 -i "ga"
 ```
 
-En aquest cas, el programa retorna el llistat de paraules amb un llarg de més de 7 lletres i que comencen per "va".
+En aquest cas, el programa retorna el llistat de paraules amb un llarg de 5 lletres i que comencen per "ga":
+
+```
+Calculant filtres...
+
+Resultats... (14)
+ganga ganós gansa ganso garra garró garsa garsó gasar gasca gascó gasós gassa gassó
+```
 
 Nota: tot i que internament es fan servir, he volgut simplificar l'ús evitant la necessitat de passar expressions regulars, per això hem separat el filtrat en arguments `-i`, `-c` i `-f`.
 
