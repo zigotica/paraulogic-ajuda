@@ -20,18 +20,19 @@ do
   esac
 done
 
+source ./utils.sh
+
 if [ -z "$lletres" ]; then
-  echo "La opció -p és obligatòria (cal saber quines són les lletres del dia)"
-  exit 1
+  err "La opció -p és obligatòria (cal saber quines són les lletres del dia)"
 fi
 
-source ./utils.sh
 ordena_lletres_dia $lletres
 
 if ! [ -s "results/$combo-filtrades.txt" ];then
-  echo "L'arxiu de solucions no existeix, cal executar './run.sh $lletres' abans de filtrar."
-  exit
+  err "L'arxiu de solucions no existeix, cal executar './run.sh $lletres' abans de filtrar."
 fi
+
+echo -ne "\n${YEL}Calculant filtres...${RST}\n"
 
 # Generem el llistat d'expresions regulars per excloure
 # les paraules que passem via paràmetre -t
@@ -132,7 +133,8 @@ fn_final() {
   fi
 }
 
-cat results/$combo-filtrades.txt \
+
+resultats=$(cat results/$combo-filtrades.txt \
   | fn_mots \
   | fn_equal \
   | fn_less \
@@ -140,5 +142,12 @@ cat results/$combo-filtrades.txt \
   | fn_inici \
   | fn_conte \
   | fn_final \
-  | sort
+  | sort)
 
+if [ "$resultats" ]; then
+  count=$(echo $resultats | wc -w | xargs)
+  echo -ne "\n${GRN}Resultats... ($count)${RST} \n"
+  echo $resultats
+else
+  echo -ne "\n${RED}No hi ha resultats${RST}"
+fi

@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Variables per donar color als outputs
+RED="$(tput setaf 1)"
+GRN="$(tput setaf 2)"
+YEL="$(tput setaf 3)"
+RST="$(tput sgr0)"
+
 # Variables per treballar amb vocals accentuades
 as="āáǎàä"
 es="ēéěèë"
@@ -10,24 +16,29 @@ vocals_desaccentuades="[aeiou]"
 vocals_accentuades="$as$es$is$os$us"
 abecedari_accentuat="a${as}bcçde${es}fghi${is}jklmno${os}pqrstu${us}vwxyz"
 
-function minusculitza () {
+function err() {
+  echo -ne "\n${RED}$*${RST}\n" >&2
+  exit 1
+}
+
+function minusculitza() {
   # Convertim les lletres passades per l'usuari a minúscules
   echo "$1" | awk '{print tolower($0)}'
 }
 
-function desaccentua () {
+function desaccentua() {
   echo "$1" | sed "s/[$as]/a/g" | sed "s/[$es]/e/g" | sed "s/[$is]/i/g" | sed "s/[$os]/o/g" | sed "s/[$us]/u/g"
 }
 
-function accentua () {
+function accentua() {
   echo "$1" | sed "s/a/a$as/g" | sed "s/e/e$es/g" | sed "s/i/i$is/g" | sed "s/o/o$os/g" | sed "s/u/u$us/g"
 }
 
-function accentua_cadena_regex () {
+function accentua_cadena_regex() {
   echo "$1" | sed "s/a/[a$as]/g" | sed "s/e/[e$es]/g" | sed "s/i/[i$is]/g" | sed "s/o/[o$os]/g" | sed "s/u/[u$us]/g"
 }
 
-function conte_accent () {
+function conte_accent() {
   if [[ "$1" =~ [$vocals_accentuades] ]]; then
     echo "true"
   else
@@ -35,7 +46,7 @@ function conte_accent () {
   fi
 }
 
-function accentua_lletra () {
+function accentua_lletra() {
   prova_accents=$(echo ${1}s)
   if [[ $1 =~ $vocals_desaccentuades ]]; then
     echo "$1${!prova_accents}"
@@ -44,7 +55,7 @@ function accentua_lletra () {
   fi
 }
 
-function ordena_lletres_dia () {
+function ordena_lletres_dia() {
   # Convertim a minúscules
   lletres_dia=$(minusculitza $1)
   # Forcem que les "lletres base" (mestra i resta) estiguin sense accents
