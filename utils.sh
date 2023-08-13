@@ -21,6 +21,16 @@ function err() {
   exit 1
 }
 
+function mostra_resultats() {
+  if [ "$1" ]; then
+    count=$(echo $1 | wc -w | xargs)
+    echo -ne "\n${GRN}Resultats... ($count)${RST} \n"
+    echo $1
+  else
+    echo -ne "\n${RED}No hi ha resultats${RST}"
+  fi
+}
+
 function minusculitza() {
   # Convertim les lletres passades per l'usuari a minúscules
   echo "$1" | awk '{print tolower($0)}'

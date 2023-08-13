@@ -144,10 +144,4 @@ resultats=$(cat results/$combo-filtrades.txt \
   | fn_final \
   | sort)
 
-if [ "$resultats" ]; then
-  count=$(echo $resultats | wc -w | xargs)
-  echo -ne "\n${GRN}Resultats... ($count)${RST} \n"
-  echo $resultats
-else
-  echo -ne "\n${RED}No hi ha resultats${RST}"
-fi
+mostra_resultats "$resultats"
