@@ -2,17 +2,18 @@
 
 # Veure README
 
-while getopts p:t:e:l:m:i:c:f: option
+while getopts d:p:e:l:m:i:c:f:t option
 do
   case "${option}" in
-    p) lletres=${OPTARG};;
-    t) mots=${OPTARG};;
+    d) lletres_dia=${OPTARG};;
+    p) paraules=${OPTARG};;
     e) equal=${OPTARG};;
     l) less=${OPTARG};;
     m) more=${OPTARG};;
     i) inici=${OPTARG};;
     c) conte=${OPTARG};;
     f) final=${OPTARG};;
+    t) mostra_tutis="true";;
     *)
       echo "Arguments incorrectes, veure README" >&2
       exit 1
@@ -22,34 +23,34 @@ done
 
 source ./utils.sh
 
-if [ -z "$lletres" ]; then
-  err "La opció -p és obligatòria (cal saber quines són les lletres del dia)"
+if [ -z "$lletres_dia" ]; then
+  err "La opció -d és obligatòria (cal saber quines són les lletres del dia)"
 fi
 
-ordena_lletres_dia $lletres
+ordena_lletres_dia $lletres_dia
 
 if ! [ -s "results/$combo-diccionari.txt" ];then
-  err "L'arxiu de solucions no existeix, cal executar './run.sh $lletres' abans de filtrar."
+  err "L'arxiu de solucions no existeix, cal executar './run.sh $lletres_dia' abans de filtrar."
 fi
 
 echo -ne "\n${YEL}Calculant filtres...${RST}\n"
 
 # Generem el llistat d'expresions regulars per excloure
 # les paraules que passem via paràmetre -t
-if [ "$mots" ]; then
-  trobades=$(echo $mots | sed -e $'s/ o /,/g' | sed -e $'s/,/ /g')
+if [ "$paraules" ]; then
+  trobades=$(echo $paraules | sed -e $'s/ o /,/g' | sed -e $'s/,/ /g')
   trobades_arr=($trobades)
   llarg=${#trobades_arr[@]}
 
-  excloses="! /^${trobades_arr[0]}$/"
+  filtrades="! /^${trobades_arr[0]}$/"
   for (( index=1; index<llarg; index++ )); do
-    excloses+=" && ! /^${trobades_arr[index]}$/"
+    filtrades+=" && ! /^${trobades_arr[index]}$/"
   done
 fi
 
-fn_mots() {
-  if [ "$mots" ]; then
-    gawk "$excloses"
+fn_paraules() {
+  if [ "$paraules" ]; then
+    gawk "$filtrades"
   else
     gawk '{ print $0 }'
   fi
@@ -133,15 +134,25 @@ fn_final() {
   fi
 }
 
+# Filtra per retornar només els tutis
+genera_regex_tutis
+fn_tutis() {
+  if [ "$mostra_tutis" ]; then
+    gawk "$tutis"
+  else
+    gawk '{ print $0 }'
+  fi
+}
 
 resultats=$(cat results/$combo-diccionari.txt \
-  | fn_mots \
+  | fn_paraules \
   | fn_equal \
   | fn_less \
   | fn_more \
   | fn_inici \
   | fn_conte \
   | fn_final \
+  | fn_tutis \
   | sort)
 
 mostra_resultats "$resultats"

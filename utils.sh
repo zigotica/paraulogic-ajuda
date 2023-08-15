@@ -65,6 +65,25 @@ function accentua_lletra() {
   fi
 }
 
+function genera_excloses() {
+  # Generem llistat de lletres excloses a partir de les lletres base i vocals accentuades
+  # Això ens permetrà obtenir paraules amb accents més endavant
+  excloses=$(echo $abecedari_accentuat | sed "s/[$lletres_dia_accentuades]//g")
+}
+
+genera_regex_tutis() {
+  # Un tuti ha d'incloure totes les lletres del dia
+  # Poden incloure vocals accentuades
+  if [ -z "$excloses" ]; then
+    genera_excloses
+  fi
+  tutis="! /[$excloses]/"
+  for (( index=0; index<llargaria_lletres_dia; index++ )); do
+    letter=$(accentua_lletra ${lletres_dia:index:1})
+    tutis+=" && /[${letter}]/"
+  done
+}
+
 function ordena_lletres_dia() {
   # Convertim a minúscules
   lletres_dia=$(minusculitza $1)
@@ -72,6 +91,7 @@ function ordena_lletres_dia() {
   lletres_dia=$(desaccentua $lletres_dia)
   # però guardem les possibles combinacions amb accents
   lletres_dia_accentuades=$(accentua $lletres_dia)
+  llargaria_lletres_dia=${#lletres_dia}
 
   # Generem la lletra mestra (obligatòria a totes les paraules del dia)
   mestra=${lletres_dia:0:1}

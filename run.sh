@@ -5,11 +5,7 @@
 
 source ./utils.sh
 ordena_lletres_dia $1
-
-# Generem llistat de lletres excloses a partir de les lletres base i vocals accentuades
-# Això ens permetrà obtenir paraules amb accents més endavant
-excloses=$(echo $abecedari_accentuat | sed "s/[$lletres_dia_accentuades]//g")
-llargaria_lletres_dia=${#lletres_dia}
+genera_excloses
 
 echo -ne "\n${GRN}MESTRA${RST} $mestra ${GRN}RESTRA${RST} $resta ${GRN}EXCLOSES${RST} $excloses\n"
 
@@ -25,14 +21,8 @@ gawk "/[$mestra]/" parsed/diccionari.txt \
   > results/$combo-diccionari.txt
 
 # Generem el llistat d'expresions regulars per trobar els Tutis
-# Un tuti ha d'incloure totes les lletres del dia
-# Poden incloure vocals accentuades
 echo -ne "\n${YEL}Generant les expresions regulars per trobar els tutis...${RST}"
-tutis="! /[$excloses]/"
-for (( index=0; index<llargaria_lletres_dia; index++ )); do
-  letter=$(accentua_lletra ${lletres_dia:index:1})
-  tutis+=" && /[${letter}]/"
-done
+genera_regex_tutis
 
 # Genera l'arxiu de tutis per la combinació del dia
 echo -ne "\n${YEL}Generant l'arxiu de tutis per la combinació del dia...${RST} results/$combo-tutis.txt"
