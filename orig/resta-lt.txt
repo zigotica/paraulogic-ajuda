@@ -1,3 +1,5 @@
+#XL XL AO0CN0 # romans
+#la la I
 'en en PP3CN000
 'hi hi PP3CN000
 'ho ho PP3NN000
@@ -44,6 +46,7 @@
 -us tu PP2CP000
 -vos tu P020P000
 -vos tu PP2CP000
+C C AO0CN0 # romans
 Ctrl Ctrl Y
 Excm excel·lentíssim Y
 Excma excel·lentíssima Y
@@ -52,6 +55,51 @@ GHz GHz NCMN000
 Gbit Gbit NCMN000
 Gbps Gbps NCMN000
 Hz Hz NCMN000
+I I AO0CN0 # romans
+II II AO0CN0 # romans
+III III AO0CN0 # romans
+IV IV AO0CN0 # romans
+IX IX AO0CN0 # romans
+L L AO0CN0 # romans
+LI LI AO0CN0 # romans
+LII LII AO0CN0 # romans
+LIII LIII AO0CN0 # romans
+LIV LIV AO0CN0 # romans
+LIX LIX AO0CN0 # romans
+LV LV AO0CN0 # romans
+LVI LVI AO0CN0 # romans
+LVII LVII AO0CN0 # romans
+LVIII LVIII AO0CN0 # romans
+LX LX AO0CN0 # romans
+LXI LXI AO0CN0 # romans
+LXII LXII AO0CN0 # romans
+LXIII LXIII AO0CN0 # romans
+LXIV LXIV AO0CN0 # romans
+LXIX LXIX AO0CN0 # romans
+LXV LXV AO0CN0 # romans
+LXVI LXVI AO0CN0 # romans
+LXVII LXVII AO0CN0 # romans
+LXVIII LXVIII AO0CN0 # romans
+LXX LXX AO0CN0 # romans
+LXXI LXXI AO0CN0 # romans
+LXXII LXXII AO0CN0 # romans
+LXXIII LXXIII AO0CN0 # romans
+LXXIV LXXIV AO0CN0 # romans
+LXXIX LXXIX AO0CN0 # romans
+LXXV LXXV AO0CN0 # romans
+LXXVI LXXVI AO0CN0 # romans
+LXXVII LXXVII AO0CN0 # romans
+LXXVIII LXXVIII AO0CN0 # romans
+LXXX LXXX AO0CN0 # romans
+LXXXI LXXXI AO0CN0 # romans
+LXXXII LXXXII AO0CN0 # romans
+LXXXIII LXXXIII AO0CN0 # romans
+LXXXIV LXXXIV AO0CN0 # romans
+LXXXIX LXXXIX AO0CN0 # romans
+LXXXV LXXXV AO0CN0 # romans
+LXXXVI LXXXVI AO0CN0 # romans
+LXXXVII LXXXVII AO0CN0 # romans
+LXXXVIII LXXXVIII AO0CN0 # romans
 MB MB NCMN000
 MHz MHz NCMN000
 MWh MWh NCMN000
@@ -60,6 +108,59 @@ Mbps Mbps NCMN000
 R+D R+D NCFS000
 R+D+I R+D+I NCFS000
 TB TB NCMN000
+V V AO0CN0 # romans
+VI VI AO0CN0 # romans
+VII VII AO0CN0 # romans
+VIII VIII AO0CN0 # romans
+X X AO0CN0 # romans
+XC XC AO0CN0 # romans
+XCI XCI AO0CN0 # romans
+XCII XCII AO0CN0 # romans
+XCIII XCIII AO0CN0 # romans
+XCIV XCIV AO0CN0 # romans
+XCIX XCIX AO0CN0 # romans
+XCV XCV AO0CN0 # romans
+XCVI XCVI AO0CN0 # romans
+XCVII XCVII AO0CN0 # romans
+XCVIII XCVIII AO0CN0 # romans
+XI XI AO0CN0 # romans
+XII XII AO0CN0 # romans
+XIII XIII AO0CN0 # romans
+XIV XIV AO0CN0 # romans
+XIX XIX AO0CN0 # romans
+XLI XLI AO0CN0 # romans
+XLII XLII AO0CN0 # romans
+XLIII XLIII AO0CN0 # romans
+XLIV XLIV AO0CN0 # romans
+XLIX XLIX AO0CN0 # romans
+XLV XLV AO0CN0 # romans
+XLVI XLVI AO0CN0 # romans
+XLVII XLVII AO0CN0 # romans
+XLVIII XLVIII AO0CN0 # romans
+XV XV AO0CN0 # romans
+XVI XVI AO0CN0 # romans
+XVII XVII AO0CN0 # romans
+XVIII XVIII AO0CN0 # romans
+XX XX AO0CN0 # romans
+XXI XXI AO0CN0 # romans
+XXII XXII AO0CN0 # romans
+XXIII XXIII AO0CN0 # romans
+XXIV XXIV AO0CN0 # romans
+XXIX XXIX AO0CN0 # romans
+XXV XXV AO0CN0 # romans
+XXVI XXVI AO0CN0 # romans
+XXVII XXVII AO0CN0 # romans
+XXVIII XXVIII AO0CN0 # romans
+XXX XXX AO0CN0 # romans
+XXXI XXXI AO0CN0 # romans
+XXXII XXXII AO0CN0 # romans
+XXXIII XXXIII AO0CN0 # romans
+XXXIV XXXIV AO0CN0 # romans
+XXXIX XXXIX AO0CN0 # romans
+XXXV XXXV AO0CN0 # romans
+XXXVI XXXVI AO0CN0 # romans
+XXXVII XXXVII AO0CN0 # romans
+XXXVIII XXXVIII AO0CN0 # romans
 a a SPS00
 abans abans CS
 abr abril Y
@@ -145,6 +246,10 @@ atxem atxem I
 atxim atxim I
 au au I
 av avinguda Y
+azzurra azzurro AQ0FS0
+azzurre azzurro AQ0FP0
+azzurri azzurro AQ0MP0
+azzurro azzurro AQ0MS0
 açò açò PD0NS000
 bah bah I
 baldament baldament CS
@@ -191,6 +296,8 @@ cascunes cascun PI0FP000
 cascuns cascun PI0MP000
 cascú cascú PI0CS000
 catorze catorze DN0CP0
+catso catso I
+catsoleta catsoleta I
 cent cent DN0CP0
 cert cert DI0MS0
 certa cert DI0FS0
@@ -219,6 +326,10 @@ cinquanta-una cinquanta-un DN0FP0
 cinquanta-vuit cinquanta-vuit DN0CP0
 cl cl NCMN000
 cm cm NCMN000
+collins collins I # vulgar
+collinsa collinsa I # vulgar
+collinses collinses I # vulgar
+collona collona I # vulgar
 com com CS
 com com PR000000
 com com PT000000
@@ -353,11 +464,15 @@ fasc fascicle Y
 febr febrer Y
 fig figura Y
 fins fins SPS00
+fole fole I # vulgar
+folis folis I # vulgar
 força força DI0CN0
 fot fot I
 fotre fotre I
+fotris fotris I # vulgar
 fra factura Y
 fres factura Y
+fótrins fótrins I # vulgar
 g g NCMN000
 gaire gaire DI0CS0
 gaire gaire PI0CS000
@@ -381,6 +496,7 @@ home home I
 hop hop I
 hosanna hosanna I
 hosp hospital Y
+hosti hosti I # vulgar
 huit huit DN0CP0
 huit-centes huit-cents DN0FP0
 huit-cents huit-cents DN0MP0
@@ -432,7 +548,6 @@ l' el DA0CS0
 l' ell PP3CSA00
 la el DA0FS0
 la ell PP3FSA00
-la la I
 les el DA0FP0
 les ell PP3FPA00
 li ell PP3CSD00
@@ -646,6 +761,7 @@ qualcuns qualcun DI0MP0
 qualcuns qualcun PI0MP000
 qualcú qualcú PI0CS000
 qualque qualque DI0CS0
+qualques qualque DI0CP0 # inusual
 quals qual DR0CP0
 quals qual PR0CP000
 qualsevol qualsevol DI0CS0
@@ -953,10 +1069,10 @@ vostre vostre DP2MSP
 vostre vostre PX2MS0P0
 vostres vostre DP2CPP
 vostres vostre PX2CP0P0
-vostè vostè PP3CS00P
-vostès vostè PP3CP00P
-vosté vostè PP3CS00P
-vostés vostè PP3CP00P
+vostè ell PP3CS00P
+vostès ell PP3CP00P
+vosté ell PP3CS00P
+vostés ell PP3CP00P
 vs versus SPS00
 vuit vuit DN0CP0
 vuit-centes vuit-cents DN0FP0
